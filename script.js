@@ -21,5 +21,5 @@ foregroundImage2.onload = function() {
 
 ctx.font = '30px Arial';
 ctx.fillStyle = 'white';
-ctx.fillText('Your Name', 20, 40);
-ctx.fillText('Scene Title', 20, 80);
+ctx.fillText('Justin Jin Lai', 20, 40);
+ctx.fillText('City Scene', 20, 80);
