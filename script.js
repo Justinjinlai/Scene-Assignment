@@ -1,40 +1,48 @@
-const canvas = document.getElementById('sceneCanvas');
-const ctx = canvas.getContext('2d');
-
-const backgroundImage = new Image();
-backgroundImage.src = 'City.jpg';  
-backgroundImage.onload = function() {
-    ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
-    drawForegroundImages();
-};
-
-function drawForegroundImages() {
-    const foregroundImage1 = new Image();
-    foregroundImage1.src = 'M8.jpg';  
-    foregroundImage1.onload = function() {
-        ctx.drawImage(foregroundImage1, 100, 350, 150, 150);
-    };
-
-    const foregroundImage2 = new Image();
-    foregroundImage2.src = 'M5.jpg';  
-    foregroundImage2.onload = function() {
-        ctx.drawImage(foregroundImage2, 500, 350, 200, 200);
-    };
-
-    drawText();  
+/* Background and general styling */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
-function drawText() {
-    ctx.font = '35px Arial';
-    ctx.fillStyle = 'white';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'top';
+/* Wrapper to center content */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
 
-    ctx.shadowColor = 'black';
-    ctx.shadowBlur = 4;
-    ctx.shadowOffsetX = 2;
-    ctx.shadowOffsetY = 2;
+/* Canvas styling */
+canvas {
+    border: 3px solid white;
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3);
+    background-color: black;
+}
 
-    ctx.fillText('Justin Jin Lai', canvas.width / 2, 20);
-    ctx.fillText('City Scene', canvas.width / 2, 70);
+/* Back link styling */
+.back-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #ff9800;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.back-link:hover {
+    background: #e68900;
 }
