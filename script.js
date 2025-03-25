@@ -2,7 +2,7 @@ const canvas = document.getElementById('sceneCanvas');
 const ctx = canvas.getContext('2d');
 
 const backgroundImage = new Image();
-backgroundImage.src = 'images/City.jpg';  
+backgroundImage.src = 'City.jpg';  
 backgroundImage.onload = function() {
     ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
     drawForegroundImages();
@@ -10,13 +10,13 @@ backgroundImage.onload = function() {
 
 function drawForegroundImages() {
     const foregroundImage1 = new Image();
-    foregroundImage1.src = 'images/M8.jpg';  
+    foregroundImage1.src = 'M8.jpg';  
     foregroundImage1.onload = function() {
         ctx.drawImage(foregroundImage1, 100, 350, 150, 150);
     };
 
     const foregroundImage2 = new Image();
-    foregroundImage2.src = 'images/M5.jpg';  
+    foregroundImage2.src = 'M5.jpg';  
     foregroundImage2.onload = function() {
         ctx.drawImage(foregroundImage2, 500, 350, 200, 200);
     };
