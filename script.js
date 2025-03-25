@@ -1,29 +1,52 @@
 const canvas = document.getElementById('sceneCanvas');
 const ctx = canvas.getContext('2d');
 
-const backgroundImage = new Image();
-backgroundImage.src = 'City.jpg';
+const background = new Image();
+const foreground1 = new Image();
+const foreground2 = new Image();
 
-const foregroundImage1 = new Image();
-foregroundImage1.src = 'M8.jpg';
+background.src = 'images/red.jpg';
+foreground1.src = 'images/Porsche.jpg';
+foreground2.src = 'images/images.jpg';
 
-const foregroundImage2 = new Image();
-foregroundImage2.src = 'M5.jpg';
+let imagesLoaded = 0;
 
-backgroundImage.onload = function() {
-    ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+// Function to check when all images have loaded
+function checkImagesLoaded() {
+    imagesLoaded++;
+    if (imagesLoaded === 3) {
+        drawScene();
+    }
+}
 
-    foregroundImage1.onload = function() {
-        ctx.drawImage(foregroundImage1, 100, 100, 150, 150);
+// Assigning onload handlers
+background.onload = checkImagesLoaded;
+foreground1.onload = checkImagesLoaded;
+foreground2.onload = checkImagesLoaded;
 
-        foregroundImage2.onload = function() {
-            ctx.drawImage(foregroundImage2, 400, 250, 200, 200);
+function drawScene() {
+    // Draw Background
+    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
-            // Draw text after all images are loaded
-            ctx.font = '30px Arial';
-            ctx.fillStyle = 'white';
-            ctx.fillText('Justin Jin Lai', 20, 40);
-            ctx.fillText('City Scene', 20, 80);
-        };
-    };
-};
+    // Draw Foreground Images
+    ctx.drawImage(foreground1, 250, 120, 700, 400); // Slightly adjusted position & size
+    ctx.drawImage(foreground2, 30, 60, 220, 220);   // Adjusted position & size
+
+    // Draw Text
+    drawText();
+}
+
+function drawText() {
+    ctx.font = '28px Arial';
+    ctx.fillStyle = 'white';
+    ctx.textAlign = 'left';
+
+    // Add text shadow for better visibility
+    ctx.shadowColor = 'black';
+    ctx.shadowBlur = 5;
+    ctx.shadowOffsetX = 2;
+    ctx.shadowOffsetY = 2;
+
+    ctx.fillText('Justin Jin Lai', 30, 460);
+    ctx.fillText('City Scene', 30, 495);
+}
