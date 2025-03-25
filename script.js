@@ -5,9 +5,9 @@ const background = new Image();
 const foreground1 = new Image();
 const foreground2 = new Image();
 
-background.src = 'images/red.jpg';
-foreground1.src = 'images/Porsche.jpg';
-foreground2.src = 'images/images.jpg';
+background.src = 'City.jpg';
+foreground1.src = 'M5.jpg';
+foreground2.src = 'M8.jpg';
 
 let imagesLoaded = 0;
 
