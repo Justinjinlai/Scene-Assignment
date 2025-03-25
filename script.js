@@ -8,7 +8,7 @@ backgroundImage.onload = function() {
 };
 
 const foregroundImage1 = new Image();
-foregroundImage1.src = 'M9.jpg';
+foregroundImage1.src = 'M8.jpg';
 foregroundImage1.onload = function() {
     ctx.drawImage(foregroundImage1, 100, 100, 150, 150);
 };
