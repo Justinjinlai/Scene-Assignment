@@ -1,48 +1,29 @@
-/* Background and general styling */
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #1e3c72, #2a5298);
-    color: white;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
+const canvas = document.getElementById('sceneCanvas');
+const ctx = canvas.getContext('2d');
 
-/* Wrapper to center content */
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-}
+const backgroundImage = new Image();
+backgroundImage.src = 'City.jpg';
 
-/* Canvas styling */
-canvas {
-    border: 3px solid white;
-    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3);
-    background-color: black;
-}
+const foregroundImage1 = new Image();
+foregroundImage1.src = 'M8.jpg';
 
-/* Back link styling */
-.back-link {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 20px;
-    background: #ff9800;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s;
-}
+const foregroundImage2 = new Image();
+foregroundImage2.src = 'M5.jpg';
 
-.back-link:hover {
-    background: #e68900;
-}
+backgroundImage.onload = function() {
+    ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+
+    foregroundImage1.onload = function() {
+        ctx.drawImage(foregroundImage1, 100, 100, 150, 150);
+
+        foregroundImage2.onload = function() {
+            ctx.drawImage(foregroundImage2, 400, 250, 200, 200);
+
+            // Draw text after all images are loaded
+            ctx.font = '30px Arial';
+            ctx.fillStyle = 'white';
+            ctx.fillText('Justin Jin Lai', 20, 40);
+            ctx.fillText('City Scene', 20, 80);
+        };
+    };
+};
